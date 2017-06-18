@@ -1,0 +1,27 @@
+{
+  "name": "solitaire",
+  "version": "0.0.1",
+  "description": "Software that solves solitaire game",
+  "scripts": {
+    "start": "node ./src/solitaire",
+    "lint": "jshint src/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/wiser-js/structure.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/wiser-js/structure#readme",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "ghooks": "^2.0.0",
+    "jshint": "^2.9.4"
+  },
+  "config": {
+    "ghooks": {
+      "pre-push": "npm run test"
+    }
+  }
+}
