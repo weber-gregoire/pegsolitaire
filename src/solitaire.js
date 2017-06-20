@@ -89,9 +89,15 @@ if (boardHandler[boardType]) {
 
   console.log(board.toString());
 
-  board.getAvailableMoves().forEach(move => {
+  const moves = board.getAvailableMoves();
+
+  moves.forEach(move => {
     console.log(move.toString());
   });
+
+  board.applyMove(moves[0]);
+  console.log(board.toString());
+
 } else {
   console.log(`Invalid argument ${boardType} for grid type.`);
   console.log(`expecting one of the following :`);

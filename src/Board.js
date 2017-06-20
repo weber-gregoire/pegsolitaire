@@ -87,6 +87,12 @@ class Board {
     return new Board(copy);
   }
 
+  applyMove(move) {
+    this.structure[move.from.y][move.from.x] = false;
+    this.structure[move.from.y + move.direction.y][move.from.x + move.direction.x] = false;
+    this.structure[move.to.y][move.to.x] = true;
+  }
+
   isFinished() {
     let marbleCount = 0;
     this.structure.forEach(line => {
