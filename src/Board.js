@@ -1,22 +1,79 @@
+const Position = require('./Position');
+const Move = require('./Move');
+
+
+function getMoveUpAtPotition(lineIndex, colIndex, structure, moves) {
+  if (this.structure[lineIndex - 2]) {
+    if (
+      this.structure[lineIndex - 2][colIndex] === false &&
+      this.structure[lineIndex - 1][colIndex] === true
+    ) {
+      moves.push(new Move(
+        new Position(colIndex, lineIndex),
+        new Position(colIndex, lineIndex - 2)
+      ));
+    }
+  }
+}
+
+function getMoveDownAtPotition(lineIndex, colIndex, structure, moves) {
+  if (this.structure[lineIndex + 2]) {
+    if (
+      this.structure[lineIndex + 2][colIndex] === false &&
+      this.structure[lineIndex + 1][colIndex] === true
+    ) {
+      moves.push(new Move(
+        new Position(colIndex, lineIndex),
+        new Position(colIndex, lineIndex + 2)
+      ));
+    }
+  }
+}
+
+function getMoveLeftAtPotition(lineIndex, colIndex, structure, moves) {
+  if (
+    this.structure[lineIndex][colIndex - 2] === false &&
+    this.structure[lineIndex][colIndex - 1] === true
+  ) {
+    moves.push(new Move(
+      new Position(colIndex, lineIndex),
+      new Position(colIndex - 2, lineIndex)
+    ));
+  }
+}
+
+function getMoveRightAtPotition(lineIndex, colIndex, structure, moves) {
+  if (
+    this.structure[lineIndex][colIndex + 2] === false &&
+    this.structure[lineIndex][colIndex + 1] === true
+  ) {
+    moves.push(new Move(
+      new Position(colIndex, lineIndex),
+      new Position(colIndex + 2, lineIndex)
+    ));
+  }
+}
+
 class Board {
 
   constructor(board) {
     this.structure = board;
   }
 
-  print() {
+  toString() {
+    let board = '';
     this.structure.forEach(line => {
-      let linetoPrint = '';
       line.forEach(square => {
         if (!!square) {
-          linetoPrint += 'O';
+          board += 'O';
         } else {
-          linetoPrint += square === undefined ? ' ': '-';
+          board += square === undefined ? ' ': '-';
         }
-        linetoPrint += ' ';
+        board += ' ';
       });
-      console.log(linetoPrint);
+      board += '\n';
     });
+    return board;
   }
 
   clone() {
@@ -40,6 +97,22 @@ class Board {
       });
     });
     return marbleCount === 1;
+  }
+
+  getAvailableMoves() {
+    const moves = [];
+    this.structure.forEach((line, lineIndex) => {
+      line.forEach((square, colIndex) => {
+        if (this.structure[lineIndex][colIndex] === true) {
+          getMoveUpAtPotition(lineIndex, colIndex, this.structure, moves);
+          getMoveDownAtPotition(lineIndex, colIndex, this.structure, moves);
+          getMoveLeftAtPotition(lineIndex, colIndex, this.structure, moves);
+          getMoveRightAtPotition(lineIndex, colIndex, this.structure, moves);
+        }
+      });
+    });
+
+    return moves;
   }
 }
 

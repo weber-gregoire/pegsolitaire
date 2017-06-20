@@ -87,8 +87,11 @@ const boardType = process.argv[2];
 if (boardHandler[boardType]) {
   const board  = boardHandler[boardType]();
 
-  board.print();
-  console.log(board.isFinished());
+  console.log(board.toString());
+
+  board.getMoves().forEach(move => {
+    console.log(move.toString());
+  });
 } else {
   console.log(`Invalid argument ${boardType} for grid type.`);
   console.log(`expecting one of the following :`);
