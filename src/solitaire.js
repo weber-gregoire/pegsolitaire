@@ -89,7 +89,7 @@ if (boardHandler[boardType]) {
 
   console.log(board.toString());
 
-  board.getMoves().forEach(move => {
+  board.getAvailableMoves().forEach(move => {
     console.log(move.toString());
   });
 } else {

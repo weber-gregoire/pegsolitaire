@@ -3,10 +3,10 @@ const Move = require('./Move');
 
 
 function getMoveUpAtPotition(lineIndex, colIndex, structure, moves) {
-  if (this.structure[lineIndex - 2]) {
+  if (structure[lineIndex - 2]) {
     if (
-      this.structure[lineIndex - 2][colIndex] === false &&
-      this.structure[lineIndex - 1][colIndex] === true
+      structure[lineIndex - 2][colIndex] === false &&
+      structure[lineIndex - 1][colIndex] === true
     ) {
       moves.push(new Move(
         new Position(colIndex, lineIndex),
@@ -17,10 +17,10 @@ function getMoveUpAtPotition(lineIndex, colIndex, structure, moves) {
 }
 
 function getMoveDownAtPotition(lineIndex, colIndex, structure, moves) {
-  if (this.structure[lineIndex + 2]) {
+  if (structure[lineIndex + 2]) {
     if (
-      this.structure[lineIndex + 2][colIndex] === false &&
-      this.structure[lineIndex + 1][colIndex] === true
+      structure[lineIndex + 2][colIndex] === false &&
+      structure[lineIndex + 1][colIndex] === true
     ) {
       moves.push(new Move(
         new Position(colIndex, lineIndex),
@@ -32,8 +32,8 @@ function getMoveDownAtPotition(lineIndex, colIndex, structure, moves) {
 
 function getMoveLeftAtPotition(lineIndex, colIndex, structure, moves) {
   if (
-    this.structure[lineIndex][colIndex - 2] === false &&
-    this.structure[lineIndex][colIndex - 1] === true
+    structure[lineIndex][colIndex - 2] === false &&
+    structure[lineIndex][colIndex - 1] === true
   ) {
     moves.push(new Move(
       new Position(colIndex, lineIndex),
@@ -44,8 +44,8 @@ function getMoveLeftAtPotition(lineIndex, colIndex, structure, moves) {
 
 function getMoveRightAtPotition(lineIndex, colIndex, structure, moves) {
   if (
-    this.structure[lineIndex][colIndex + 2] === false &&
-    this.structure[lineIndex][colIndex + 1] === true
+    structure[lineIndex][colIndex + 2] === false &&
+    structure[lineIndex][colIndex + 1] === true
   ) {
     moves.push(new Move(
       new Position(colIndex, lineIndex),
