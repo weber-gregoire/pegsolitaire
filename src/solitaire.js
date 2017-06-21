@@ -13,5 +13,5 @@ if (availableBoards[boardType]) {
 } else {
   console.log(`Invalid argument ${boardType} for grid type.`);
   console.log(`expecting one of the following :`);
-  Object.keys.foreach(key => console.log(key));
+  Object.keys(availableBoards).forEach(key => console.log(key));
 }
