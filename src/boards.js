@@ -107,21 +107,49 @@ module.exports = {
       y: 3
     }
   },
-  'DIAMOND': {
+  'UP': {
     structure: [
-      [undefined, undefined, undefined, undefined, true, undefined, undefined, undefined, undefined],
-      [undefined, undefined, undefined, true, true, true, undefined, undefined, undefined],
-      [undefined, undefined, true, true, true, true, true, undefined, undefined],
-      [undefined, true, true, true, true, true, true, true, undefined],
-      [true, true, true, true, false, true, true, true, true],
-      [undefined, true, true, true, true, true, true, true, undefined],
-      [undefined, undefined, true, true, true, true, true, undefined, undefined],
-      [undefined, undefined, undefined, true, true, true, undefined, undefined, undefined],
-      [undefined, undefined, undefined, undefined, true, undefined, undefined, undefined, undefined]
+      [undefined, undefined, false, true, false, undefined, undefined],
+      [undefined, undefined, true, true, true, undefined, undefined],
+      [false, true, true, true, true, true, false],
+      [false, false, false, true, false, false, false],
+      [false, false, false, true, false, false, false],
+      [undefined, undefined, true, true, true, undefined, undefined],
+      [undefined, undefined, true, true, true, undefined, undefined]
     ],
     finish: {
-      x: 4,
-      y: 4
+      x: 3,
+      y: 3
     }
-  }
+  },
+  'PYRAMID': {
+    structure: [
+      [undefined, undefined, false, false, false, undefined, undefined],
+      [undefined, undefined, false, true, false, undefined, undefined],
+      [false, false, true, true, true, false, false],
+      [false, true, true, true, true, true, false],
+      [true, true, true, true, true, true, true],
+      [undefined, undefined, false, false, false, undefined, undefined],
+      [undefined, undefined, false, false, false, undefined, undefined]
+    ],
+    finish: {
+      x: 3,
+      y: 3
+    }
+  },
+  'DIAMOND': {
+    structure: [
+      [undefined, undefined, false, true, false, undefined, undefined],
+      [undefined, undefined, true, true, true, undefined, undefined],
+      [false, true, true, true, true, true, false],
+      [true, true, true, false, true, true, true],
+      [false, true, true, true, true, true, false],
+      [undefined, undefined, true, true, true, undefined, undefined],
+      [undefined, undefined, false, true, false, undefined, undefined]
+    ],
+    finish: {
+      x: 3,
+      y: 3
+    }
+  },
 };
