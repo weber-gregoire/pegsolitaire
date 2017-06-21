@@ -56,8 +56,9 @@ function getMoveRightAtPotition(lineIndex, colIndex, structure, moves) {
 
 class Board {
 
-  constructor(board) {
+  constructor(board, finishPoint) {
     this.structure = board;
+    this.finishPoint = finishPoint;
   }
 
   toString() {
@@ -89,7 +90,7 @@ class Board {
       copy.push(tempLine);
     });
 
-    return new Board(copy);
+    return new Board(copy, this.finishPoint);
   }
 
   applyMove(move) {
@@ -107,7 +108,7 @@ class Board {
         }
       });
     });
-    return marbleCount === 1;
+    return marbleCount === 1 && this.structure[this.finishPoint.x][this.finishPoint.y];
   }
 
   getAvailableMoves() {
