@@ -61,8 +61,13 @@ class Board {
   }
 
   toString() {
-    let board = '';
-    this.structure.forEach(line => {
+    let board = '   ';
+    for (let i = 0; i < this.structure[0].length; ++i) {
+      board += i + ' ';
+    }
+    board += '\n';
+    this.structure.forEach((line, lineIndex) => {
+      board += `${lineIndex}  `;
       line.forEach(square => {
         if (!!square) {
           board += 'O';
