@@ -58,8 +58,6 @@ class Board {
 
   constructor(board) {
     this.structure = board;
-    const builder = new BoardIdentifierBuilder(this.structure);
-    this.identifier = builder.getIdentifier();
   }
 
   toString() {
@@ -126,6 +124,14 @@ class Board {
     });
 
     return moves;
+  }
+
+  getIdentifier() {
+    if (!this.identifier) {
+      const builder = new BoardIdentifierBuilder(this.structure);
+      this.identifier = builder.getIdentifier();
+    }
+    return this.identifier;
   }
 }
 

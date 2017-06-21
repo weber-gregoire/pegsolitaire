@@ -5,7 +5,7 @@ class Node {
     this.moves = board.getAvailableMoves();
   }
 
-  solve(winningMoves, deepness) {
+  solve(winningMoves, blacklist) {
     let solved = false;
     const moveCount = this.moves.length;
     for (let i = 0; i < moveCount; ++i) {
@@ -19,14 +19,21 @@ class Node {
         winningMoves.push(move);
         break;
       } else {
-        const nextNode = new Node(boardClone);
-        if (nextNode.solve(winningMoves, deepness + 1)) {
-          solved = true;
-          winningMoves.push(move);
-          break;
+        if (!blacklist.includes(boardClone.getIdentifier())) {
+          const nextNode = new Node(boardClone);
+          if (nextNode.solve(winningMoves, blacklist)) {
+            solved = true;
+            winningMoves.push(move);
+            break;
+          }  
         }
       }
     }
+
+    if (!solved) {
+      blacklist.push(this.board.getIdentifier());
+    }
+
     return solved;
   }
 }

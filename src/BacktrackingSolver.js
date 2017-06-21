@@ -7,10 +7,13 @@ class BacktrackingSolver {
   }
 
   solve() {
+    console.time('solitaire solver execution time');
     console.log(this.board.toString());
     const root = new Node(this.board.clone());
     const winningMoves = [];
-    const solved = root.solve(winningMoves, 0);
+    const blacklist = [];
+
+    const solved = root.solve(winningMoves, blacklist, 0);
 
     if (solved) {
       const copy = this.board.clone();
@@ -22,6 +25,7 @@ class BacktrackingSolver {
     } else {
       console.log('Unsolvable');
     }
+    console.timeEnd('solitaire solver execution time');
   }
 }
 
