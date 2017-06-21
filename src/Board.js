@@ -1,6 +1,6 @@
 const Position = require('./Position');
 const Move = require('./Move');
-
+const BoardIdentifierBuilder  = require('./BoardIdentifierBuilder');
 
 function getMoveUpAtPotition(lineIndex, colIndex, structure, moves) {
   if (structure[lineIndex - 2]) {
@@ -58,6 +58,8 @@ class Board {
 
   constructor(board) {
     this.structure = board;
+    const builder = new BoardIdentifierBuilder(this.structure);
+    this.identifier = builder.getIdentifier();
   }
 
   toString() {

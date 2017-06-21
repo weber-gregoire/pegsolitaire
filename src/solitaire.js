@@ -1,10 +1,11 @@
 const BacktrackingSolver = require('./BacktrackingSolver');
-const boardHandler = require('./boards');
+const Board = require('./Board');
+const availableBoards = require('./boards');
 
 const boardType = process.argv[2];
 
-if (boardHandler[boardType]) {
-  const board  = boardHandler[boardType];
+if (availableBoards[boardType]) {
+  const board  = new Board(availableBoards[boardType]);
   const solver = new BacktrackingSolver(board);
   solver.solve();
 } else {
