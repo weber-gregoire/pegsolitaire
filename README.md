@@ -17,7 +17,7 @@ Run the program
 Get the image by building or pulling it
 
 * ```docker build -t solitaire .```
-* ```docker pull gregoireweber/peg-solitaire-solver```
+* ```docker pull gregoireweber/peg-solitaire-solver:latest```
 
 Then run the image
 ```docker run gregoireweber/peg-solitaire-solver <NAME_OF_THE_BOARD>```
@@ -101,7 +101,7 @@ O O O - O O O
     - O -     
 ```
 
-### EUROPEAN (long solving duration)
+### EUROPEAN (long solving time)
 ```
     O O O
   O O O O O
@@ -112,7 +112,7 @@ O O O O O O O
     O O O
 ```
 
-### GERMAN (long solving duration)
+### GERMAN (long solving time)
 ```
       O O O       
       O O O       
@@ -125,7 +125,7 @@ O O O O O O O O O
       O O O       
 ```
 
-### ASYMETRICAL (long solving duration)
+### ASYMETRICAL (long solving time)
 ```
     O O O       
     O O O       
