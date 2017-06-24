@@ -1,5 +1,5 @@
 # Peg Solitaire Solver
-This is a simple program in Node.js taht solves peg solitaire based on a backtracking algorithm, and symetric identifications, with no optimization at all.
+This is a simple program in Node.js that solves peg solitaire based on a backtracking algorithm, and symetric identifications, with no optimization at all.
 Many variations of the board are available to be solved, and the solving time depends on the board chosen.
 
 ## How to run
